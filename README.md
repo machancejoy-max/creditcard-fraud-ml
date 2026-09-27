@@ -1,56 +1,7 @@
-Credit Card Fraud Detection – End‑to‑End ML System
-This project implements a complete machine learning pipeline for detecting credit card fraud using XGBoost, FastAPI, Docker, and Azure Container Apps. It includes data exploration, preprocessing, model training, deployment, and automated CI/CD workflows.
+This project is my end‑to‑end machine learning system for detecting credit card fraud. I built it to learn how real ML pipelines work from start to finish — from exploring the data, to training the model, to deploying it in a container.
 
-Project Overview
-The goal of this project is to build a scalable, production‑ready fraud detection system. The pipeline covers:
+The dataset needed a lot of cleaning and balancing because fraud cases were extremely rare. I used scaling and oversampling to help the model learn better. For the model itself, I chose XGBoost because it performs well on tabular data and handles imbalance nicely.
 
-Exploratory Data Analysis
+After training, I created a FastAPI service that can take transaction details and return a fraud probability. I packaged everything into a Docker container so the API runs the same way everywhere. The Dockerfile sits in the project root and includes all the files the app needs. Once the container is running, the API becomes available locally and can also be deployed to Azure Container Apps.
 
-Data preprocessing and class imbalance handling
-
-Model development and tuning
-
-API creation for real‑time predictions
-
-Containerization and cloud deployment
-
-Automated CI/CD for continuous updates
-
-Strategy for model retraining and maintenance
-
-Key Features
-End‑to‑end ML workflow
-
-XGBoost classifier optimized for imbalanced data
-
-SMOTE oversampling
-
-FastAPI prediction service
-
-Dockerized application
-
-Deployment on Azure Container Apps
-
-GitHub Actions CI/CD pipeline
-
-Saved model and scaler for consistent inference
-
-Repository Structure
-notebooks/ – Exploratory data analysis
-
-src/ – ML pipeline, API, utilities, and saved models
-
-data/ – Dataset (if included)
-
-Dockerfile – Container definition
-
-requirements.txt – Dependencies
-
-Deployment
-The application is deployed using Azure Container Apps and exposes a public endpoint for fraud prediction. The Docker image is stored in Azure Container Registry, and GitHub Actions automates testing, building, and deployment.
-
-Model Maintenance
-A retraining strategy ensures long‑term model performance. The system supports periodic retraining and redeployment when new data becomes available or when performance metrics decline.
-
-Status
-The project is fully implemented, deployed, and version‑controlled. It includes documentation, a user guide, and a final report summarizing the entire workflow.
+The project includes documentation, a user guide, and a final report explaining the whole process in a simple way. Overall, this was a great hands‑on experience building a real ML system that works end‑to‑end.
